@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <!-- Placeholder hero photo: replace with a real photo (e.g. images/hero.jpg) and update config.js -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4dcda"/>
+      <stop offset="1" stop-color="#d9a9ae"/>
+    </linearGradient>
+    <linearGradient id="nail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c98791"/>
+      <stop offset="1" stop-color="#8f4f5a"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="40"/></filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <!-- soft "bokeh" lights -->
+  <g filter="url(#blur)" opacity="0.7">
+    <circle cx="250" cy="200" r="160" fill="#fff"/>
+    <circle cx="1350" cy="780" r="200" fill="#fbe9e7"/>
+    <circle cx="1250" cy="180" r="120" fill="#fff"/>
+    <circle cx="300" cy="850" r="140" fill="#e7b9bd"/>
+  </g>
+  <!-- stylised nails, left and right, leaving the middle clear for the text -->
+  <g fill="url(#nail)" opacity="0.55">
+    <rect x="80"   y="420" width="70" height="190" rx="35" transform="rotate(-18 115 515)"/>
+    <rect x="170"  y="360" width="78" height="220" rx="39" transform="rotate(-10 209 470)"/>
+    <rect x="270"  y="350" width="78" height="230" rx="39" transform="rotate(-2 309 465)"/>
+    <rect x="1260" y="360" width="78" height="230" rx="39" transform="rotate(4 1299 475)"/>
+    <rect x="1360" y="380" width="78" height="220" rx="39" transform="rotate(12 1399 490)"/>
+    <rect x="1455" y="450" width="70" height="180" rx="35" transform="rotate(20 1490 540)"/>
+  </g>
+</svg>
