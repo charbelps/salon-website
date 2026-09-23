@@ -538,6 +538,19 @@ section { scroll-margin-top: var(--topbar-height); }
   .section { padding: 96px 40px; }
 
   .services { grid-template-columns: repeat(2, 1fr); }
+
+  /* If the LAST category card would sit alone on its row (odd number of cards),
+     stretch it across the full width and put its items in two columns.
+     With the current 5 categories, that's "Extras". */
+  .service-group:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .service-group:last-child:nth-child(odd) ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+  }
+  /* In two columns, the divider lines go above the 2nd row onwards (not between columns) */
+  .service-group:last-child:nth-child(odd) li + li { border-top: 0; }
+  .service-group:last-child:nth-child(odd) li:nth-child(n+3) { border-top: 1px solid #f1e6e6; }
   .gallery  { grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
   .about { grid-template-columns: 1fr 1.3fr; gap: 56px; }

@@ -29,6 +29,10 @@ services, prices, her work, and location, and can contact her on WhatsApp.
   `<meta name="robots" content="noindex, nofollow">` tag so Google doesn't list the site while it
   has placeholder content (phone is `961XXXXXXXX`, photos are placeholders). Remove that tag
   (and its comment block) once the real content is in — otherwise the site will never show up on Google.
+- **Version number (cache busting):** `index.html` loads `style.css?v=N`, `config.js?v=N` and
+  `script.js?v=N`, all with the SAME number. Every time any of these three files changes,
+  increase N by 1 on all three links, so visitors' browsers load the new files instead of an
+  old saved copy. Current version: **v=2**.
 
 ## File layout
 - `index.html` — page structure + SEO/social tags + structured data
