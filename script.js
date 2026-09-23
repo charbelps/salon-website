@@ -75,21 +75,32 @@ function formatPrice(price) {
   if (typeof price === "number") {
     return site.currency + price;
   }
-  // Text prices like "from 15": put the currency before the number
-  return String(price).replace(/(\d+)/, site.currency + "$1");
+  // Text prices like "from 0.50 per nail" or "+2": put the currency before the first number
+  // (a function is used so a "$" currency isn't mistaken for a special replace code)
+  return String(price).replace(/\d/, function (firstDigit) {
+    return site.currency + firstDigit;
+  });
 }
 
 var servicesHtml = "";
 site.services.forEach(function (group) {
   servicesHtml += '<div class="card service-group">';
-  servicesHtml += "<h3>" + group.category + "</h3><ul>";
+  servicesHtml += "<h3>" + group.category + "</h3>";
+  // Optional small note under the category title, e.g. "Russian manicure included"
+  if (group.note) {
+    servicesHtml += '<p class="category-note">' + group.note + "</p>";
+  }
+  servicesHtml += "<ul>";
   group.items.forEach(function (item) {
     servicesHtml += "<li>" +
       '<div class="service-row">' +
-        '<span class="service-name">' + item.name + "</span>" +
+        '<span class="service-name">' + item.name +
+          (item.popular ? ' <span class="badge">Popular</span>' : "") +
+        "</span>" +
         '<span class="service-dots"></span>' +
         '<span class="service-price">' + formatPrice(item.price) + "</span>" +
       "</div>" +
+      (item.duration ? '<p class="service-duration">' + item.duration + "</p>" : "") +
       (item.note ? '<p class="service-note">' + item.note + "</p>" : "") +
     "</li>";
   });

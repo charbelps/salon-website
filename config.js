@@ -38,46 +38,62 @@ window.SITE = {
 
   /* ---------- 4. Opening hours ---------- */
   hours: [
-    { days: "Monday – Friday", time: "10:00 AM – 7:00 PM" },
-    { days: "Saturday",        time: "10:00 AM – 5:00 PM" },
-    { days: "Sunday",          time: "Closed" }
+    { days: "Monday – Saturday", time: "8:00 AM – 6:00 PM" },
+    { days: "Sunday",            time: "Closed" }
   ],
 
-  /* ---------- 5. Services & prices ---------- */
+  /* ---------- 5. Services & prices ----------
+     Each category:  category (title), note (optional, small text under the title), items.
+     Each item:      name, price, duration (optional), note (optional),
+                     popular: true (optional, shows a "Popular" badge).
+     price can be a number (8 → "$8") or text where the number gets the $ added
+     ("from 0.50 per nail" → "from $0.50 per nail", "+2" → "+$2"). */
   currency: "$",
   services: [
     {
       category: "Manicure",
       items: [
-        { name: "Classic Manicure",        price: 12, note: "Shape, cuticles & regular polish" },
-        { name: "Gel Manicure",            price: 20, note: "Long-lasting gel polish" },
-        { name: "French Gel",              price: 25 },
-        { name: "Gel Removal",             price: 5 }
-      ]
-    },
-    {
-      category: "Extensions",
-      items: [
-        { name: "Acrylic Full Set",        price: 35 },
-        { name: "Gel Extensions (BIAB)",   price: 35 },
-        { name: "Refill",                  price: 25, note: "Up to 3 weeks" },
-        { name: "Polygel Full Set",        price: 38 }
-      ]
-    },
-    {
-      category: "Nail Art",
-      items: [
-        { name: "Simple Art (per nail)",   price: 2 },
-        { name: "Chrome / Cat Eye",        price: 8, note: "Full set add-on" },
-        { name: "Custom Design",           price: "from 15" }
+        { name: "Regular Manicure",              price: 8,  duration: "30 min" },
+        { name: "Manicure without Color",        price: 5,  duration: "30 min" },
+        { name: "Gel Color",                     price: 15, duration: "50 min" },
+        { name: "Pose Mains",                    price: 5,  duration: "20 min" }
       ]
     },
     {
       category: "Pedicure",
       items: [
-        { name: "Classic Pedicure",        price: 18 },
-        { name: "Gel Pedicure",            price: 25 },
-        { name: "Spa Pedicure",            price: 30, note: "Scrub, mask & massage" }
+        { name: "Regular Pedicure",              price: 10, duration: "45 min" },
+        { name: "Pedicure without Color",        price: 8,  duration: "40 min" },
+        { name: "Pedicure with Gel Color",       price: 30, duration: "80 min" },
+        { name: "Pose Pieds",                    price: 5,  duration: "20 min" }
+      ]
+    },
+    {
+      category: "Liquid Builder",
+      note: "Russian manicure included",
+      items: [
+        { name: "Liquid Builder Colored",        price: 20, duration: "60 min", popular: true },
+        { name: "Liquid Builder + Regular Polish", price: 25, duration: "50 min" },
+        { name: "Liquid Builder + Gel Color",    price: 30, duration: "60 min" }
+      ]
+    },
+    {
+      category: "Extensions",
+      note: "Russian manicure included",
+      items: [
+        { name: "Full Set Gel Extensions, with gel color", price: 50, duration: "120 min" },
+        { name: "GelX",                          price: 35, duration: "75 min" },
+        { name: "Refill with Gel Color",         price: 30, duration: "90 min" },
+        { name: "Refill with Regular Color",     price: 25, duration: "75 min" }
+      ]
+    },
+    {
+      category: "Extras",
+      items: [
+        { name: "Nail Designs",                  price: "from 0.50 per nail", note: "Depends on the design" },
+        { name: "French",                        price: "+2" },
+        { name: "Ombre / Cat Eye",               price: "+5" },
+        { name: "Broken Nail Repair",            price: 1 }
       ]
     }
   ],
