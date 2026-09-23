@@ -144,9 +144,9 @@ byId("about-text").innerHTML = site.aboutText.map(function (paragraph) {
 /* ---------- 5. Location ---------- */
 byId("address").textContent = site.address;
 byId("map-link").href = site.mapLink;
-// Google Maps embed that works without an API key
+// Google Maps embed that works without an API key (z=17 = street-level zoom)
 byId("map").src = "https://www.google.com/maps?q=" +
-                  encodeURIComponent(site.mapQuery) + "&output=embed";
+                  encodeURIComponent(site.mapQuery) + "&z=17&output=embed";
 
 byId("hours").innerHTML = site.hours.map(function (row) {
   var closedClass = row.time.toLowerCase() === "closed" ? ' class="closed"' : "";

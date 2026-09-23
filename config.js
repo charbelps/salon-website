@@ -14,7 +14,7 @@ window.SITE = {
   /* ---------- 1. Basics ---------- */
   name: "Snatched & Nailed",
   tagline: "Nails that scream confidence.",
-  shortIntro: "Hygiene • Precision • Aesthetic. Manicures, pedicures and nail designs in Sen El Fil, Beirut.",
+  shortIntro: "Hygiene • Precision • Aesthetic. Manicures, pedicures and nail designs in Sin El Fil, Beirut.",
   // Big photo behind the top of the page. Leave empty ("") to use the soft pink gradient instead.
   heroImage: "images/hero.svg",
 
@@ -28,12 +28,13 @@ window.SITE = {
   instagramHandle: "snatchedandnailed",   // without the @
 
   /* ---------- 3. Location ---------- */
-  // Area from her Instagram bio. Add the street / building once known.
-  address: "Sen El Fil, Beirut, Lebanon",
-  // What to search on Google Maps for the embedded map (address or salon name)
-  mapQuery: "Sin El Fil, Lebanon",
-  // Link that opens directions in the Google Maps app
-  mapLink: "https://maps.google.com/?q=Sin+El+Fil,+Lebanon",
+  // Address shown on the page. Add the street / building once known.
+  address: "Sin El Fil, Beirut, Lebanon",
+  // Exact spot for the embedded map: "latitude,longitude"
+  // (in Google Maps, right-click the spot and click the numbers to copy them)
+  mapQuery: "33.885397,35.537177",
+  // Link for the "Get directions" button (Google Maps → Share → Copy link)
+  mapLink: "https://maps.app.goo.gl/AjtG8dwewVQkqVx47",
 
   /* ---------- 4. Opening hours ---------- */
   hours: [
