@@ -32,7 +32,7 @@ services, prices, her work, and location, and can contact her on WhatsApp.
 - **Version number (cache busting):** `index.html` loads `style.css?v=N`, `config.js?v=N` and
   `script.js?v=N`, all with the SAME number. Every time any of these three files changes,
   increase N by 1 on all three links, so visitors' browsers load the new files instead of an
-  old saved copy. Current version: **v=4**.
+  old saved copy. Current version: **v=5**.
 
 ## File layout
 - `index.html` — page structure + SEO/social tags + structured data

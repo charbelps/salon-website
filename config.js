@@ -29,6 +29,9 @@ window.SITE = {
   whatsappNumber: "961XXXXXXXX",
   // Message that appears pre-typed when someone taps ANY WhatsApp / Book button
   whatsappMessage: "Hi! I'd like to book an appointment.",
+  // Message when someone taps a service in the price list — the service name is added at the end,
+  // e.g. "Hi! I'd like to book: Liquid Builder Colored"
+  serviceMessage: "Hi! I'd like to book: ",
   instagramHandle: "snatchedandnailed",   // without the @
 
   /* ---------- 3. Location ---------- */

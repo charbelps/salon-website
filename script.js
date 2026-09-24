@@ -76,10 +76,14 @@ if (site.logo) {
   });
 }
 
-/* Every element with class "js-whatsapp" becomes a WhatsApp link.
-   wa.me opens WhatsApp (app on phone, web on desktop) with the message pre-typed. */
-var whatsappUrl = "https://wa.me/" + site.whatsappNumber +
-                  "?text=" + encodeURIComponent(site.whatsappMessage);
+/* Builds a WhatsApp link with a pre-typed message.
+   wa.me opens WhatsApp (app on phone, web on desktop). */
+function whatsappLink(message) {
+  return "https://wa.me/" + site.whatsappNumber + "?text=" + encodeURIComponent(message);
+}
+
+/* Every element with class "js-whatsapp" becomes a WhatsApp link with the general message */
+var whatsappUrl = whatsappLink(site.whatsappMessage);
 document.querySelectorAll(".js-whatsapp").forEach(function (link) {
   link.href = whatsappUrl;
 });
@@ -120,7 +124,11 @@ site.services.forEach(function (group) {
   }
   servicesHtml += "<ul>";
   group.items.forEach(function (item) {
+    // Each service is a link: tapping it opens WhatsApp with
+    // "Hi! I'd like to book: <service name>" already typed
+    var bookUrl = whatsappLink(site.serviceMessage + item.name);
     servicesHtml += "<li>" +
+      '<a class="service-link" href="' + bookUrl + '" target="_blank" rel="noopener">' +
       '<div class="service-row">' +
         '<span class="service-name">' + item.name +
           (item.popular ? ' <span class="badge">Popular</span>' : "") +
@@ -130,6 +138,7 @@ site.services.forEach(function (group) {
       "</div>" +
       (item.duration ? '<p class="service-duration">' + item.duration + "</p>" : "") +
       (item.note ? '<p class="service-note">' + item.note + "</p>" : "") +
+      "</a>" +
     "</li>";
   });
   servicesHtml += "</ul></div>";
