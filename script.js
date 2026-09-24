@@ -59,7 +59,7 @@ byId("tagline").textContent = site.tagline;
 byId("intro").textContent = site.shortIntro;
 
 /* Hero photo: only if heroImage is set in config.js.
-   Otherwise the hero keeps its pink gradient from style.css. */
+   Otherwise the hero keeps its gradient (heroFrom / heroTo colors in config.js). */
 if (site.heroImage) {
   var hero = byId("hero");
   hero.style.backgroundImage = 'url("' + site.heroImage + '")';
