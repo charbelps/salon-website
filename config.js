@@ -121,12 +121,22 @@ window.SITE = {
   aboutImage: "images/about.svg",
 
   /* ---------- 8. Colors ---------- */
+  // Black & cream, matching her logo, with one soft taupe accent.
   colors: {
-    primary:    "#b76e79",   // rose gold — buttons, highlights
-    primaryDark:"#8f4f5a",   // darker rose — button hover
-    background: "#fdf8f6",   // soft blush white
-    surface:    "#ffffff",   // cards
-    text:       "#3a2e30",   // main text
-    muted:      "#8a7a7c"    // secondary text
+    primary:     "#151412",   // soft black — buttons
+    primaryDark: "#3b3630",   // charcoal — button hover, headings, prices
+    onPrimary:   "#f2e9da",   // logo cream — text and icons on black
+    accent:      "#8a7458",   // warm taupe — thin lines, small notes, "Nail Studio"
+    background:  "#f6f0e7",   // cream page background
+    surface:     "#fffcf7",   // warm white cards
+    text:        "#161412",   // main text
+    muted:       "#756b60",   // secondary text (durations, notes)
+    line:        "#e7ddcf",   // thin dividers and card borders
+    heroFrom:    "#faf6ef",   // top gradient, light cream…
+    heroTo:      "#e9dfcf",   // …to deeper cream
+    footerBg:    "#111110",   // black footer
+    footerText:  "#cfc5b5",   // cream-grey footer text
+    whatsapp:    "#151412",   // floating WhatsApp button + contact icon (black instead of green)
+    instagram:   "#151412"    // Instagram contact icon (black instead of the rainbow)
   }
 };

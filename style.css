@@ -6,19 +6,28 @@
    ===================================================================== */
 
 :root {
-  /* Default colors (used until config.js loads) */
-  --primary: #b76e79;
-  --primary-dark: #8f4f5a;
-  --bg: #fdf8f6;
-  --surface: #ffffff;
-  --text: #3a2e30;
-  --muted: #8a7a7c;
-  --whatsapp: #25d366;
+  /* Default colors (used until config.js loads). The real theme is set in config.js → colors. */
+  --primary: #b76e79;        /* buttons */
+  --primary-dark: #8f4f5a;   /* button hover, headings, prices */
+  --on-primary: #ffffff;     /* text/icons on buttons */
+  --accent: #b76e79;         /* small decorative touches: lines, notes, badges */
+  --bg: #fdf8f6;             /* page background */
+  --surface: #ffffff;        /* cards */
+  --text: #3a2e30;           /* main text */
+  --muted: #8a7a7c;          /* secondary text */
+  --line: #f1e6e6;           /* thin dividers and card borders */
+  --hero-from: #f6e1e1;      /* hero gradient, top-left */
+  --hero-to: #e8c2c4;        /* hero gradient, bottom-right */
+  --footer-bg: #3a2e30;
+  --footer-text: #e9dcdc;
+  --whatsapp: #25d366;       /* floating WhatsApp button + WhatsApp contact icon */
+  --instagram: linear-gradient(45deg, #f5a623, #e1306c 50%, #833ab4);   /* Instagram contact icon */
 
   --font-heading: "Cormorant Garamond", Georgia, serif;
   --font-body: "Jost", "Segoe UI", Arial, sans-serif;
   --radius: 14px;
-  --shadow: 0 6px 24px rgba(90, 50, 60, 0.08);
+  /* Shadows are a soft tint of the text color, so they suit any theme */
+  --shadow: 0 6px 24px color-mix(in srgb, var(--text) 9%, transparent);
   --topbar-height: 56px;
 }
 
@@ -61,7 +70,7 @@ h2::after {
   width: 48px;
   height: 2px;
   margin: 12px auto 0;
-  background: var(--primary);
+  background: var(--accent);
 }
 
 h3 {
@@ -87,8 +96,8 @@ a { color: inherit; }
 
 .btn-whatsapp {
   background: var(--primary);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(183, 110, 121, 0.35);
+  color: var(--on-primary);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--primary) 30%, transparent);
 }
 .btn-whatsapp:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
@@ -113,11 +122,11 @@ a { color: inherit; }
   justify-content: space-between;
   gap: 12px;
   padding: 0 16px;
-  /* Frosted blush glass so it looks good over the hero and the sections */
-  background: rgba(253, 248, 246, 0.85);
+  /* Frosted glass in the page color, so it looks good over the hero and the sections */
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(183, 110, 121, 0.15);
+  border-bottom: 1px solid var(--line);
 }
 
 .topbar-links {
@@ -137,7 +146,7 @@ a { color: inherit; }
   padding: 7px 18px;
   border-radius: 999px;
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -157,10 +166,11 @@ section { scroll-margin-top: var(--topbar-height); }
   /* Phones: just enough room for the content (no big empty gap) */
   padding: calc(var(--topbar-height) + 48px) 20px 56px;
   text-align: center;
-  /* Soft blush gradient with a gentle glow (used when there's no hero photo) */
+  /* Soft gradient with a gentle glow (used when there's no hero photo).
+     Colors: heroFrom / heroTo in config.js */
   background:
-    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.8), transparent 50%),
-    linear-gradient(160deg, #f6e1e1 0%, #f3d4d1 45%, #e8c2c4 100%);
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.7), transparent 50%),
+    linear-gradient(160deg, var(--hero-from) 0%, var(--hero-to) 100%);
 }
 
 /* With a hero photo (heroImage in config.js): script.js sets the photo,
@@ -174,7 +184,9 @@ section { scroll-margin-top: var(--topbar-height); }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(253, 248, 246, 0.4), rgba(253, 248, 246, 0.65));
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--bg) 40%, transparent),
+    color-mix(in srgb, var(--bg) 65%, transparent));
 }
 
 .hero-content {
@@ -199,7 +211,7 @@ section { scroll-margin-top: var(--topbar-height); }
   text-transform: uppercase;
   letter-spacing: 0.3em;
   font-size: 0.8rem;
-  color: var(--primary-dark);
+  color: var(--accent);
   margin: 0 0 12px;
 }
 
@@ -260,7 +272,7 @@ section { scroll-margin-top: var(--topbar-height); }
   margin: 0;
 }
 .service-group li { padding: 10px 0; }
-.service-group li + li { border-top: 1px solid #f1e6e6; }
+.service-group li + li { border-top: 1px solid var(--line); }
 
 /* Name .......... Price */
 .service-row {
@@ -271,7 +283,7 @@ section { scroll-margin-top: var(--topbar-height); }
 .service-dots {
   flex: 1;
   min-width: 16px;           /* keep a few dots even when the name is long */
-  border-bottom: 1px dotted #d9c3c5;
+  border-bottom: 1px dotted color-mix(in srgb, var(--accent) 45%, transparent);
   transform: translateY(-4px);
 }
 .service-price {
@@ -285,7 +297,7 @@ section { scroll-margin-top: var(--topbar-height); }
   margin: -6px 0 8px;
   font-size: 0.85rem;
   font-style: italic;
-  color: var(--primary);
+  color: var(--accent);
 }
 
 /* Duration under each service name, e.g. "30 min" */
@@ -309,7 +321,7 @@ section { scroll-margin-top: var(--topbar-height); }
   padding: 2px 9px;
   border-radius: 999px;
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
   font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -427,7 +439,7 @@ section { scroll-margin-top: var(--topbar-height); }
   gap: 14px;
   padding: 16px 18px;
   background: var(--surface);
-  border: 1px solid rgba(183, 110, 121, 0.12);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   text-decoration: none;
@@ -436,12 +448,12 @@ section { scroll-margin-top: var(--topbar-height); }
 }
 .contact-item:hover {
   transform: translateY(-2px);
-  border-color: rgba(183, 110, 121, 0.35);
+  border-color: var(--accent);
 }
 /* Press effect: the card sinks slightly when tapped */
 .contact-item:active {
   transform: scale(0.97);
-  box-shadow: 0 2px 8px rgba(90, 50, 60, 0.1);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--text) 12%, transparent);
 }
 
 .contact-icon {
@@ -453,11 +465,11 @@ section { scroll-margin-top: var(--topbar-height); }
   align-items: center;
   justify-content: center;
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
 }
 .contact-icon svg { width: 24px; height: 24px; fill: currentColor; }
 .contact-icon.icon-wa { background: var(--whatsapp); }
-.contact-icon.icon-ig { background: linear-gradient(45deg, #f5a623, #e1306c 50%, #833ab4); }
+.contact-icon.icon-ig { background: var(--instagram); }
 
 .contact-text {
   flex: 1;                   /* takes the middle space, pushing the action text right */
@@ -492,8 +504,8 @@ section { scroll-margin-top: var(--topbar-height); }
   /* Extra bottom space on phones: the floating button (58px + 18px from the edge)
      sits in this empty strip, so it never covers the footer text. */
   padding: 36px 20px calc(110px + env(safe-area-inset-bottom));
-  background: #3a2e30;
-  color: #e9dcdc;
+  background: var(--footer-bg);
+  color: var(--footer-text);
   font-size: 0.9rem;
 }
 .footer p { margin: 4px 0; }
@@ -502,12 +514,12 @@ section { scroll-margin-top: var(--topbar-height); }
   height: 64px;
   margin: 0 auto 10px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);   /* thin ring so the black logo stands out on the dark footer */
+  border: 1px solid color-mix(in srgb, var(--footer-text) 30%, transparent);   /* thin ring so a dark logo stands out on a dark footer */
 }
 .footer-name {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--on-primary);
 }
 
 /* ---------- Floating WhatsApp button (phones) ---------- */
@@ -524,9 +536,11 @@ section { scroll-margin-top: var(--topbar-height); }
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  /* thin light ring so a dark button still shows over the dark footer */
+  border: 1px solid color-mix(in srgb, var(--on-primary) 30%, transparent);
   transition: opacity 0.25s, transform 0.25s;
 }
-.whatsapp-float svg { width: 32px; height: 32px; fill: #fff; }
+.whatsapp-float svg { width: 32px; height: 32px; fill: var(--on-primary); }
 .whatsapp-float:active { transform: scale(0.92); }
 
 /* Hidden (while the hero's Book button is visible): fade out and shrink */
@@ -569,7 +583,7 @@ section { scroll-margin-top: var(--topbar-height); }
   }
   /* In two columns, the divider lines go above the 2nd row onwards (not between columns) */
   .service-group:last-child:nth-child(odd) li + li { border-top: 0; }
-  .service-group:last-child:nth-child(odd) li:nth-child(n+3) { border-top: 1px solid #f1e6e6; }
+  .service-group:last-child:nth-child(odd) li:nth-child(n+3) { border-top: 1px solid var(--line); }
   /* Desktop: as many ~220px tiles per row as fit (4 photos = one full row) */
   .gallery  { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 

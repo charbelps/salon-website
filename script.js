@@ -12,13 +12,31 @@ function byId(id) {
 }
 
 /* ---------- Colors: copy config colors into CSS variables ---------- */
+/* Left: the name in config.js → colors.  Right: the CSS variable it sets in style.css.
+   Any color missing from config.js keeps its default from the top of style.css. */
+var colorVariables = {
+  primary:     "--primary",
+  primaryDark: "--primary-dark",
+  onPrimary:   "--on-primary",
+  accent:      "--accent",
+  background:  "--bg",
+  surface:     "--surface",
+  text:        "--text",
+  muted:       "--muted",
+  line:        "--line",
+  heroFrom:    "--hero-from",
+  heroTo:      "--hero-to",
+  footerBg:    "--footer-bg",
+  footerText:  "--footer-text",
+  whatsapp:    "--whatsapp",
+  instagram:   "--instagram"
+};
 var root = document.documentElement.style;
-root.setProperty("--primary", site.colors.primary);
-root.setProperty("--primary-dark", site.colors.primaryDark);
-root.setProperty("--bg", site.colors.background);
-root.setProperty("--surface", site.colors.surface);
-root.setProperty("--text", site.colors.text);
-root.setProperty("--muted", site.colors.muted);
+Object.keys(colorVariables).forEach(function (name) {
+  if (site.colors[name]) {
+    root.setProperty(colorVariables[name], site.colors[name]);
+  }
+});
 
 /* ---------- 1. Hero ---------- */
 /* Salon name: if it contains "&", split it into two lines on phones,
