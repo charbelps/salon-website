@@ -136,7 +136,7 @@ window.SITE = {
     heroTo:      "#e9dfcf",   // …to deeper cream
     footerBg:    "#111110",   // black footer
     footerText:  "#cfc5b5",   // cream-grey footer text
-    whatsapp:    "#151412",   // floating WhatsApp button + contact icon (black instead of green)
+    whatsapp:    "#25d366",   // WhatsApp green — floating WhatsApp button + WhatsApp contact icon
     instagram:   "#151412"    // Instagram contact icon (black instead of the rainbow)
   }
 };
