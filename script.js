@@ -48,6 +48,16 @@ if (site.heroImage) {
   hero.classList.add("has-photo");
 }
 
+/* Logo (top of the page + footer): only shown if logo is set in config.js */
+if (site.logo) {
+  ["hero-logo", "footer-logo"].forEach(function (id) {
+    var img = byId(id);
+    img.src = site.logo;
+    img.alt = site.name + " logo";
+    img.hidden = false;
+  });
+}
+
 /* Every element with class "js-whatsapp" becomes a WhatsApp link.
    wa.me opens WhatsApp (app on phone, web on desktop) with the message pre-typed. */
 var whatsappUrl = "https://wa.me/" + site.whatsappNumber +

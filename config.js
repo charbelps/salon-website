@@ -16,7 +16,11 @@ window.SITE = {
   tagline: "Nails that scream confidence.",
   shortIntro: "Hygiene • Precision • Aesthetic. Manicures, pedicures and nail designs in Sin El Fil, Beirut.",
   // Big photo behind the top of the page. Leave empty ("") to use the soft pink gradient instead.
-  heroImage: "images/hero.svg",
+  // Keep empty until there's a high-quality original photo.
+  heroImage: "",
+  // Salon logo, shown at the top of the page and in the footer. Leave empty ("") for no logo.
+  // (The browser-tab icon and link-preview picture are set in index.html.)
+  logo: "images/logo.png",
 
   /* ---------- 2. Contact ---------- */
   // Phone as people should SEE it:
@@ -99,14 +103,13 @@ window.SITE = {
   ],
 
   /* ---------- 6. Gallery ----------
-     Put photos in the /images folder and list them here. */
+     Put photos in the /images folder and list them here.
+     "alt" describes the photo for Google and for blind visitors. */
   gallery: [
-    { src: "images/gallery-1.svg", alt: "Nude pink gel manicure" },
-    { src: "images/gallery-2.svg", alt: "Burgundy almond nails" },
-    { src: "images/gallery-3.svg", alt: "French tips with gold detail" },
-    { src: "images/gallery-4.svg", alt: "Chrome nails" },
-    { src: "images/gallery-5.svg", alt: "Floral nail art" },
-    { src: "images/gallery-6.svg", alt: "Milky white acrylic set" }
+    { src: "images/work-1.jpg", alt: "Glossy red square nails" },
+    { src: "images/work-3.jpg", alt: "Soft pink almond nails with a Russian manicure" },
+    { src: "images/work-2.jpg", alt: "Milky white and brown almond nails with a leopard and gold accent nail" },
+    { src: "images/work-4.jpg", alt: "Burgundy cat eye almond nails" }
   ],
 
   /* ---------- 7. About ---------- */
